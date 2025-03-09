@@ -33,7 +33,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            position: relative;
         }
 
         .carousel {
@@ -43,7 +42,7 @@
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(255,192,203,0.5);
             border-bottom: 5px solid rgba(255, 255, 255, 0.5);
-            margin-bottom: 120px;
+            margin-bottom: 40px;
         }
 
         .slide {
@@ -85,16 +84,26 @@
             animation: float 6s linear infinite;
         }
 
-        .video-container {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            border-radius: 15px;
+        .media-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            z-index: 2;
-            transition: 0.3s;
+            box-shadow: 0 0 30px rgba(255,192,203,0.5);
+            border: 3px solid rgba(255, 255, 255, 0.7);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .butterfly {
@@ -132,7 +141,7 @@
 </head>
 <body>
     <div class="glow"></div>
-    <h1>Happy Birthday Meri Jaan ! 💖</h1>
+    <h1>Happy Birthday My Love! 💖</h1>
     
     <div class="container">
         <div class="carousel">
@@ -143,8 +152,10 @@
             <button class="nav-btn prev">❮</button>
             <button class="nav-btn next">❯</button>
         </div>
+    </div>
 
-        <div class="video-container">
+    <div class="media-container">
+        <div class="video-wrapper">
             <video width="100%" autoplay muted loop>
                 <source src="video1.mp4" type="video/mp4">
             </video>
@@ -191,25 +202,6 @@
             setTimeout(() => heart.remove(), 6000);
         }
         setInterval(createHeart, 300);
-
-        // Video Scroll Behavior
-        const videoContainer = document.querySelector('.video-container');
-        const container = document.querySelector('.container');
-        
-        window.addEventListener('scroll', () => {
-            const containerRect = container.getBoundingClientRect();
-            const scrollPosition = window.scrollY + window.innerHeight;
-            
-            if (scrollPosition > containerRect.bottom + 100) {
-                videoContainer.style.position = 'fixed';
-                videoContainer.style.bottom = '20px';
-                videoContainer.style.right = '20px';
-            } else {
-                videoContainer.style.position = 'absolute';
-                videoContainer.style.bottom = '20px';
-                videoContainer.style.right = '20px';
-            }
-        });
 
         // Music Control
         const audio = document.getElementById('music');
